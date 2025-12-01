@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "chocolotl",
+  "version": "${version}",
+  "name": "Chocolotl",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/chocolotl/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "chocolotl.client.ChocolotlClient"
+    ],
+    "main": [
+      "chocolotl.Chocolotl"
+    ]
+  },
+  "mixins": [
+    "chocolotl.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
