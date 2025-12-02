@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "PMP",
+    "SES",
+    "PWP"
+  ],
+  "key": {
+    "P": {
+      "item": "chocolotl:cocoa_powder"
+    },
+
+    "M": {
+      "item": "minecraft:milk_bucket"
+    },
+
+    "S": {
+      "item": "minecraft:sugar"
+    },
+
+    "E": {
+      "item": "minecraft:egg"
+    },
+
+    "W": {
+      "item": "minecraft:wheat"
+    }
+  },
+  "result": {
+    "item": "chocolotl:chocolate_cake"
+  }
+}
