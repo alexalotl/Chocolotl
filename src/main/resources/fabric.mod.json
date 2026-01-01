@@ -10,11 +10,14 @@
   "icon": "assets/chocolotl/icon.png",
   "environment": "*",
   "entrypoints": {
+    "main": [
+      "chocolotl.Chocolotl"
+    ],
     "client": [
       "chocolotl.client.ChocolotlClient"
     ],
-    "main": [
-      "chocolotl.Chocolotl"
+    "fabric-datagen": [
+      "chocolotl.datagen.DatagenInit"
     ]
   },
   "mixins": [

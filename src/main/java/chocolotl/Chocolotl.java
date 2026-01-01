@@ -21,7 +21,7 @@ public class Chocolotl implements ModInitializer {
 
         Registry.register(Registries.ITEM, Identifier.of("chocolotl", "cocoa_powder"), COCOA_POWDER);
 
-        Registry.register(Registries.ITEM, Identifier.of("chocolotl", "chocolate_cake"), new BlockItem(CHOCOLATE_CAKE, new Item.Settings()));
+        Registry.register(Registries.ITEM, Identifier.of("chocolotl", "chocolate_cake"), new BlockItem(CHOCOLATE_CAKE, new Item.Settings().maxCount(1)));
         Registry.register(Registries.BLOCK, Identifier.of("chocolotl", "chocolate_cake"), CHOCOLATE_CAKE);
     }
 }

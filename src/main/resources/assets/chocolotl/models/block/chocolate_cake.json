@@ -1,7 +1,25 @@
 {
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "chocolotl:block/chocolate_cake"
-  }
+	"format_version": "1.21.6",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"bottom": "chocolotl:block/chocolate_cake_bottom",
+		"top": "chocolotl:block/chocolate_cake_top",
+		"particle": "chocolotl:block/chocolate_cake_side",
+		"side": "chocolotl:block/chocolate_cake_side"
+	},
+	"elements": [
+		{
+			"from": [1, 0, 1],
+			"to": [15, 8, 15],
+			"faces": {
+				"north": {"uv": [1, 8, 15, 16], "texture": "#side"},
+				"east": {"uv": [1, 8, 15, 16], "texture": "#side"},
+				"south": {"uv": [1, 8, 15, 16], "texture": "#side"},
+				"west": {"uv": [1, 8, 15, 16], "texture": "#side"},
+				"up": {"uv": [1, 1, 15, 15], "texture": "#top"},
+				"down": {"uv": [1, 1, 15, 15], "texture": "#bottom", "cullface": "down"}
+			}
+		}
+	],
+	"display": {}
 }
-
