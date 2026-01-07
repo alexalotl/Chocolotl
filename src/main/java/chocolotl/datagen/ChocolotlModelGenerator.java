@@ -25,8 +25,6 @@ public class ChocolotlModelGenerator extends FabricModelProvider {
     public void generateBlockStateModels(BlockStateModelGenerator blockGen) {
         registerCake(blockGen, Chocolotl.CHOCOLATE_CAKE, 7);
 
-//        final Identifier exampleBlockModelId = TexturedModel.CUBE_ALL.upload(Chocolotl.CHOCOLATE_CAKE, blockGen.modelCollector);
-//        blockStateModelGenerator.registerParentedItemModel(TutorialBlocks.EXAMPLE_BLOCK, exampleBlockModelId);
     }
 
     @Override
