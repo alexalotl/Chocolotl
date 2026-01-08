@@ -1,7 +1,6 @@
 package chocolotl.mixin;
 
-import chocolotl.Chocolotl;
-import net.minecraft.block.Blocks;
+import chocolotl.ChocolotlRegistry;
 import net.minecraft.block.entity.AbstractFurnaceBlockEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -18,8 +17,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public class AbstractFurnaceBlockEntityMixin {
     @Inject(method = "craftRecipe", at = @At(value = "INVOKE", target = "Lnet/minecraft/item/ItemStack;decrement(I)V"))
     private static void craftRecipe(DynamicRegistryManager registryManager, @Nullable Recipe<?> recipe, DefaultedList<ItemStack> slots, int count, CallbackInfoReturnable<Boolean> cir) {
-        if (slots.get(0).isOf(Chocolotl.BROWN_SUGAR) && !slots.get(1).isEmpty() && slots.get(1).isOf(Items.BUCKET)) {
-            slots.set(1, new ItemStack(Chocolotl.MOLASSES_BUCKET));
+        if (slots.get(0).isOf(ChocolotlRegistry.BROWN_SUGAR) && !slots.get(1).isEmpty() && slots.get(1).isOf(Items.BUCKET)) {
+            slots.set(1, new ItemStack(ChocolotlRegistry.MOLASSES_BUCKET));
         }
     }
 }
