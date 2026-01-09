@@ -32,6 +32,8 @@ public class ChocolotlRegistry {
             .build();
 
     // Items
+    public static final Item COCOA_LIQUOR = new Item(new FabricItemSettings());
+    public static final Item COCOA_BUTTER = new Item(new FabricItemSettings());
     public static final Item COCOA_POWDER = new CocoaPowderItem(new FabricItemSettings());
     public static final Item BROWN_SUGAR = new BrownSugarItem(new FabricItemSettings());
     public static final Item MOLASSES_BUCKET = new MolassesBucketItem(new FabricItemSettings());
@@ -52,6 +54,8 @@ public class ChocolotlRegistry {
 
     public static void setup() {
         // Items
+        register("cocoa_liquor", COCOA_LIQUOR);
+        register("cocoa_butter", COCOA_BUTTER);
         register("cocoa_powder", COCOA_POWDER);
         register("brown_sugar", BROWN_SUGAR);
         register("molasses_bucket", MOLASSES_BUCKET);
