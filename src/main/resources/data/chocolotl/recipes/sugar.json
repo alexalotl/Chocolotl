@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "category": "ingredients",
-  "cookingtime": 100,
+  "cookingtime": 200,
   "experience": 0.1,
   "ingredient": {
     "item": "chocolotl:brown_sugar"

@@ -1,8 +1,6 @@
 package chocolotl;
 
 import chocolotl.blocks.ChocolateCakeBlock;
-import chocolotl.items.BrownSugarItem;
-import chocolotl.items.CocoaPowderItem;
 import chocolotl.items.MolassesBucketItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
@@ -34,12 +32,13 @@ public class ChocolotlRegistry {
     // Items
     public static final Item COCOA_LIQUOR = new Item(new FabricItemSettings());
     public static final Item COCOA_BUTTER = new Item(new FabricItemSettings());
-    public static final Item COCOA_POWDER = new CocoaPowderItem(new FabricItemSettings());
-    public static final Item BROWN_SUGAR = new BrownSugarItem(new FabricItemSettings());
+    public static final Item COCOA_POWDER = new Item(new FabricItemSettings());
+    public static final Item BROWN_SUGAR = new Item(new FabricItemSettings());
     public static final Item MOLASSES_BUCKET = new MolassesBucketItem(new FabricItemSettings());
     public static final Item HAZELNUT = new Item(new FabricItemSettings()
             .food(new FoodComponent.Builder()
-                    .hunger(2).saturationModifier(0.1F)
+                    .hunger(2)
+                    .saturationModifier(0.1F)
                     .snack()
                     .build()));
     public static final Item ROASTED_HAZELNUT = new Item(new FabricItemSettings()
@@ -51,6 +50,8 @@ public class ChocolotlRegistry {
 
     // Blocks
     public static final Block CHOCOLATE_CAKE = new ChocolateCakeBlock(Block.Settings.create().strength(0.5f));
+    // TODO: consider change to this and remove ChocolateCakeBlock.java
+//    public static final Block CHOCOLATE_CAKE_2 = new CakeBlock(Block.Settings.create().strength(0.5f));
 
     public static void setup() {
         // Items
