@@ -1,10 +1,15 @@
 package chocolotl;
 
 import chocolotl.blocks.ChocolateCakeBlock;
+import chocolotl.blocks.TemperingMachineBlock;
+import chocolotl.blocks.TemperingMachineBlockEntity;
 import chocolotl.items.MolassesBucketItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -51,8 +56,13 @@ public class ChocolotlRegistry {
     // Blocks
     public static final Block CHOCOLATE_CAKE = new ChocolateCakeBlock(Block.Settings.create().strength(0.5f));
     // TODO: consider change to this and remove ChocolateCakeBlock.java
-//    public static final Block CHOCOLATE_CAKE_2 = new CakeBlock(Block.Settings.create().strength(0.5f));
+//  public static final Block CHOCOLATE_CAKE_2 = new CakeBlock(Block.Settings.create().strength(0.5f));
+    public static final TemperingMachineBlock TEMPERING_MACHINE_BLOCK = new TemperingMachineBlock(AbstractBlock.Settings.create());
 
+    // Block Entities
+    public static final BlockEntityType<TemperingMachineBlockEntity> TEMPERING_MACHINE_BE = FabricBlockEntityTypeBuilder
+            .create(TemperingMachineBlockEntity::new, ChocolotlRegistry.TEMPERING_MACHINE_BLOCK)
+            .build();
     public static void setup() {
         // Items
         register("cocoa_liquor", COCOA_LIQUOR);
@@ -65,6 +75,10 @@ public class ChocolotlRegistry {
 
         // Blocks
         register("chocolate_cake", CHOCOLATE_CAKE);
+        register("tempering_machine", TEMPERING_MACHINE_BLOCK);
+
+        // Block Entities
+        register("tempering_machine", TEMPERING_MACHINE_BE);
 
         // Item Group
         Registry.register(Registries.ITEM_GROUP, chocId("item_group"), ITEM_GROUP);
@@ -85,5 +99,9 @@ public class ChocolotlRegistry {
         if (includeItem) {
             register(name, new BlockItem(block, new Item.Settings()));
         }
+    }
+
+    private static void register(String name, BlockEntityType<?> blockEntityType) {
+        Registry.register(Registries.BLOCK_ENTITY_TYPE, chocId(name), blockEntityType);
     }
 }
