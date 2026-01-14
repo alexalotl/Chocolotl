@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "CKC",
+    "FBU",
+    "SSS"
+  ],
+  "key": {
+    "C": {
+      "item": "minecraft:chain"
+    },
+
+    "K": {
+      "item": "minecraft:sticks"
+    },
+
+    "F": {
+      "item": "minecraft:furnace"
+    },
+
+    "B": {
+      "item": "minecraft:bucket"
+    },
+
+    "U": {
+      "item": "minecraft:stone_button"
+    },
+
+    "S": {
+      "tag": "minecraft:stone_crafting_materials"
+    }
+  },
+  "result": {
+    "item": "chocolotl:tempering_machine"
+  }
+}
