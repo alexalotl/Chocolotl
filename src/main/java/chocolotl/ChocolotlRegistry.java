@@ -4,6 +4,7 @@ import chocolotl.blocks.ChocolateCakeBlock;
 import chocolotl.blocks.TemperingMachineBlock;
 import chocolotl.blocks.TemperingMachineBlockEntity;
 import chocolotl.items.MolassesBucketItem;
+import chocolotl.screens.TemperingMachineScreenHandler;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.itemgroup.v1.FabricItemGroup;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
@@ -13,6 +14,8 @@ import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.*;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
+import net.minecraft.resource.featuretoggle.FeatureFlags;
+import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.text.Text;
 
 import java.util.ArrayList;
@@ -63,6 +66,10 @@ public class ChocolotlRegistry {
     public static final BlockEntityType<TemperingMachineBlockEntity> TEMPERING_MACHINE_BE = FabricBlockEntityTypeBuilder
             .create(TemperingMachineBlockEntity::new, ChocolotlRegistry.TEMPERING_MACHINE_BLOCK)
             .build();
+
+    // Screen Handlers
+    public static final ScreenHandlerType<TemperingMachineScreenHandler> TEMPERING_MACHINE_SCREEN_HANDLER = new ScreenHandlerType<>(TemperingMachineScreenHandler::new, FeatureFlags.VANILLA_FEATURES);
+
     public static void setup() {
         // Items
         register("cocoa_liquor", COCOA_LIQUOR);
@@ -80,28 +87,33 @@ public class ChocolotlRegistry {
         // Block Entities
         register("tempering_machine", TEMPERING_MACHINE_BE);
 
+        // Screen Handlers
+        register("tempering_machine", TEMPERING_MACHINE_SCREEN_HANDLER);
+
         // Item Group
         Registry.register(Registries.ITEM_GROUP, chocId("item_group"), ITEM_GROUP);
     }
 
-    private static void register(String name, Item item) {
+    private static void register(String name, Item item){
         Registry.register(Registries.ITEM, chocId(name), item);
         ITEMS.add(item);
     }
 
-    private static void register(String name, Block block) {
-        register(name, block, true);
-    }
+    private static void register(String name, Block block){ register(name, block, true); }
 
-    private static void register(String name, Block block, boolean includeItem) {
+    private static void register(String name, Block block, boolean includeItem){
         Registry.register(Registries.BLOCK, chocId(name), block);
         BLOCKS.add(block);
-        if (includeItem) {
+        if(includeItem){
             register(name, new BlockItem(block, new Item.Settings()));
         }
     }
 
-    private static void register(String name, BlockEntityType<?> blockEntityType) {
+    private static void register(String name, BlockEntityType<?> blockEntityType){
         Registry.register(Registries.BLOCK_ENTITY_TYPE, chocId(name), blockEntityType);
+    }
+
+    private static void register(String name, ScreenHandlerType<?> screenHandler){
+        Registry.register(Registries.SCREEN_HANDLER, chocId(name), screenHandler);
     }
 }

@@ -107,7 +107,7 @@ public class TemperingMachineBlockEntity extends BlockEntity implements SidedInv
 
     public Text getDisplayName(){ return Text.translatable("container.tempering_machine"); }
 
-    public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return new TemperingMachineScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
+    public @Nullable ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player){
+        return new TemperingMachineScreenHandler(syncId, playerInventory, propertyDelegate, this);
     }
 }
