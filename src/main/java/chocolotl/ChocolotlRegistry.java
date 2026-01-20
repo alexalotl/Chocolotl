@@ -42,6 +42,7 @@ public class ChocolotlRegistry {
     public static final Item COCOA_BUTTER = new Item(new FabricItemSettings());
     public static final Item COCOA_POWDER = new Item(new FabricItemSettings());
     public static final Item BROWN_SUGAR = new Item(new FabricItemSettings());
+    public static final Item MILK_POWDER = new Item(new FabricItemSettings());
     public static final Item MOLASSES_BUCKET = new MolassesBucketItem(new FabricItemSettings());
     public static final Item HAZELNUT = new Item(new FabricItemSettings()
             .food(new FoodComponent.Builder()
@@ -76,6 +77,7 @@ public class ChocolotlRegistry {
         register("cocoa_butter", COCOA_BUTTER);
         register("cocoa_powder", COCOA_POWDER);
         register("brown_sugar", BROWN_SUGAR);
+        register("milk_powder", MILK_POWDER);
         register("molasses_bucket", MOLASSES_BUCKET);
         register("hazelnut", HAZELNUT);
         register("roasted_hazelnut", ROASTED_HAZELNUT);
