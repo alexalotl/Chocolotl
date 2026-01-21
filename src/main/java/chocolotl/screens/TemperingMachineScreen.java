@@ -15,6 +15,7 @@ public class TemperingMachineScreen extends HandledScreen<TemperingMachineScreen
 
     public TemperingMachineScreen(TemperingMachineScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
+        backgroundHeight = 168;
     }
 
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {

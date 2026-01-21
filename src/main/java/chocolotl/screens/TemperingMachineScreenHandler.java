@@ -24,7 +24,7 @@ public class TemperingMachineScreenHandler extends AbstractRecipeScreenHandler<I
             int syncId,
             PlayerInventory playerInventory
     ){
-        this(syncId, playerInventory, new ArrayPropertyDelegate(0), new SimpleInventory(0));
+        this(syncId, playerInventory, new ArrayPropertyDelegate(0), new SimpleInventory(8));
     }
 
     public TemperingMachineScreenHandler(
@@ -37,30 +37,29 @@ public class TemperingMachineScreenHandler extends AbstractRecipeScreenHandler<I
         this.inventory = inventory;
         this.propertyDelegate = propertyDelegate;
 
-        // TODO Map slots to texture once texture is made.
         // Fuel Slot
-        addSlot(new Slot(inventory, 0, 56, 17));
+        addSlot(new FuelSlot(inventory, 0, 17, 45));
         // Choco Input 1 Slot
-        addSlot(new Slot(inventory, 1, 56, 17));
+        addSlot(new ChocolateSlot(inventory, 1, 50, 23));
         // Choco Input 2 Slot
-        addSlot(new Slot(inventory, 2, 56, 17));
+        addSlot(new ChocolateSlot(inventory, 2, 73, 23));
         // Choco Input 3 Slot
-        addSlot(new Slot(inventory, 3, 56, 17));
+        addSlot(new ChocolateSlot(inventory, 3, 50, 46));
         // Choco Input 4 Slot
-        addSlot(new Slot(inventory, 4, 56, 17));
+        addSlot(new ChocolateSlot(inventory, 4, 73, 46));
         // Ingredient Input 1 Slot
-        addSlot(new Slot(inventory, 5, 56, 17));
+        addSlot(new Slot(inventory, 5, 119, 46));
         // Ingredient Input 2 Slot
-        addSlot(new Slot(inventory, 6, 56, 17));
+        addSlot(new Slot(inventory, 6, 137, 46));
         // Output Slot
-        addSlot(new Slot(inventory, 7, 56, 17));
+        addSlot(new ChocolateBarOutputSlot(playerInventory.player, inventory, 7, 128, 18));
 
         // Player Inventory Slots
         for(int i = 0; i < 3; i++) for(int j = 0; j < 9; j++)
-            this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 84 + i * 18));
+            this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 86 + i * 18));
 
         for(int i = 0; i < 9; i++)
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
 
         addProperties(propertyDelegate);
     }

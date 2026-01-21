@@ -60,6 +60,7 @@ public class TemperingMachineBlockEntity extends BlockEntity implements SidedInv
 
     public void writeNbt(NbtCompound nbt) {
         super.writeNbt(nbt);
+        Inventories.writeNbt(nbt, this.inventory);
     }
 
     public int[] getAvailableSlots(Direction side) {
