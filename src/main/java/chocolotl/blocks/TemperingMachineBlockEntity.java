@@ -27,6 +27,7 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Set;
 
 public class TemperingMachineBlockEntity extends BlockEntity implements SidedInventory, NamedScreenHandlerFactory {
@@ -150,14 +151,14 @@ public class TemperingMachineBlockEntity extends BlockEntity implements SidedInv
         ItemStack chocoInput2 = blockEntity.inventory.get(2);
         ItemStack chocoInput3 = blockEntity.inventory.get(3);
         ItemStack chocoInput4 = blockEntity.inventory.get(4);
-        Set<Item> chocoInputs = Set.of(chocoInput1.getItem(), chocoInput2.getItem(), chocoInput3.getItem(), chocoInput4.getItem());
+        List<Item> chocoInputs = List.of(chocoInput1.getItem(), chocoInput2.getItem(), chocoInput3.getItem(), chocoInput4.getItem());
 
         ChocoType chocoType;
-        if (chocoInputs.equals(milkChocoInputs1) || chocoInputs.equals((milkChocoInputs2))) {
+        if (chocoInputs.containsAll(milkChocoInputs1) || chocoInputs.containsAll((milkChocoInputs2))) {
             chocoType = ChocoType.MILK;
-        } else if (chocoInputs.equals(darkChocoInputs1) || chocoInputs.equals((darkChocoInputs2))) {
+        } else if (chocoInputs.containsAll(darkChocoInputs1) || chocoInputs.containsAll((darkChocoInputs2))) {
             chocoType = ChocoType.DARK;
-        } else if (chocoInputs.equals(whiteChocoInputs1) || chocoInputs.equals((whiteChocoInputs2))) {
+        } else if (chocoInputs.containsAll(whiteChocoInputs1) || chocoInputs.containsAll((whiteChocoInputs2))) {
             chocoType = ChocoType.WHITE;
         } else {
             chocoType = ChocoType.NONE;
@@ -198,10 +199,10 @@ public class TemperingMachineBlockEntity extends BlockEntity implements SidedInv
                     blockEntity.cookTime = 0;
                     // TODO Replace with minigame timer.
                     blockEntity.cookTimeTotal = 200;
-                    if (craftRecipe(world.getRegistryManager(), blockEntity.inventory, maxCountPerStack, blockEntity.outputChocoType)) {
-
-                        // set as previous recipe??
-                    }
+//                    if (craftRecipe(world.getRegistryManager(), blockEntity.inventory, maxCountPerStack, blockEntity.outputChocoType)) {
+//
+//                        // set as previous recipe??
+//                    }
 
                     shouldMarkDirty = true;
                 }

@@ -24,7 +24,7 @@ public class TemperingMachineScreenHandler extends AbstractRecipeScreenHandler<I
             int syncId,
             PlayerInventory playerInventory
     ){
-        this(syncId, playerInventory, new ArrayPropertyDelegate(0), new SimpleInventory(8));
+        this(syncId, playerInventory, new ArrayPropertyDelegate(4), new SimpleInventory(8));
     }
 
     public TemperingMachineScreenHandler(
@@ -90,6 +90,26 @@ public class TemperingMachineScreenHandler extends AbstractRecipeScreenHandler<I
 
     public int getCraftingSlotCount() {
         return 0;
+    }
+
+    public int getCookProgress() {
+        int i = this.propertyDelegate.get(2);
+        int j = this.propertyDelegate.get(3);
+        // TODO Set up cooking progress to match sprite (change the 24)
+        return j != 0 && i != 0 ? i * 24 / j : 0;
+    }
+
+    public int getFuelProgress() {
+        int i = this.propertyDelegate.get(1);
+        if (i == 0) {
+            i = 200;
+        }
+
+        return this.propertyDelegate.get(0) * 13 / i;
+    }
+
+    public boolean isBurning() {
+        return this.propertyDelegate.get(0) > 0;
     }
 
     public RecipeBookCategory getCategory() {

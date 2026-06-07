@@ -19,9 +19,16 @@ public class TemperingMachineScreen extends HandledScreen<TemperingMachineScreen
     }
 
     protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
+        int i = this.x;
+        int j = this.y;
         RenderSystem.setShader(GameRenderer::getPositionTexProgram);
         RenderSystem.setShaderColor(1, 1, 1, 1);
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
+
+        if (this.handler.isBurning()) {
+            int burn_progress = this.handler.getFuelProgress();
+            context.drawTexture(TEXTURE, i + 17, j + 28 + 12 - burn_progress, 0, 181 - burn_progress, 14, burn_progress + 1);
+        }
     }
 
 
